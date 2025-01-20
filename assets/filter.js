@@ -8,7 +8,7 @@ function renderFilterButton() {
   //   console.log(category);
   category.forEach(function (category) {
     var button = document.createElement("BUTTON");
-    button.textContent = category;
+    button.textContent = category.charAt(0).toUpperCase()+ category.slice(1);;
     filterButton.appendChild(button);
   });
 }

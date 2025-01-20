@@ -14,7 +14,6 @@ function renderElement() {
   elementData.forEach(function (el) {
     element[el.name + "Element"] = document.createElement(el.el);
   });
-  console.log(element);
   return element;
 }
 
