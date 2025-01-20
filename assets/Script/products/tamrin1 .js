@@ -1,5 +1,6 @@
-var listProduct = document.getElementById("list-product");
-var elementData = [
+define([],function(){
+const listProduct = document.getElementById("list-product");
+const elementData = [
   { el: "LI", name: "Li" },
   { el: "H2", name: "title" },
   { el: "IMG", name: "image" },
@@ -17,7 +18,7 @@ function renderElement() {
   return element;
 }
 
-function render(product) {
+return function render(product) {
   listProduct.innerHTML = "";
   function totalPrice() {
     var sum = product.reduce(function (accumulator, product) {
@@ -49,4 +50,6 @@ function render(product) {
   totalPriceElement.textContent = "Total Price :" + totalPrice() + "$";
 }
 
-render(productsData);
+
+
+})
