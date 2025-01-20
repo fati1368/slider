@@ -5,5 +5,5 @@ require.config({
 });
 
 require(["jquery"], function($) {
-    console.log("jQuery version: " + $.fn.jquery);
+    console.log("jQuery version: " + $.fn.jquery);ئخ
 });

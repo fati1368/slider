@@ -1,6 +1,6 @@
-define([],function(){
-const listProduct = document.getElementById("list-product");
-const elementData = [
+ const listProduct = document.getElementById("list-product");
+
+  let elementData = [
   { el: "LI", name: "Li" },
   { el: "H2", name: "title" },
   { el: "IMG", name: "image" },
@@ -10,24 +10,24 @@ const elementData = [
   { el: "B", name: "price" },
 ];
 
-function renderElement() {
-  var element = {};
+ function renderElement() {
+  let element = {};
   elementData.forEach(function (el) {
     element[el.name + "Element"] = document.createElement(el.el);
   });
   return element;
 }
 
-return function render(product) {
+export default function render(product) {
   listProduct.innerHTML = "";
   function totalPrice() {
-    var sum = product.reduce(function (accumulator, product) {
+    let sum = product.reduce(function (accumulator, product) {
       return accumulator + product.price;
     }, 0);
     return Math.round(sum);
   }
   product.forEach(function (product, i, a) {
-    var elements = renderElement();
+    let elements = renderElement();
     elements.titleElement.textContent = product.title;
     elements.imageElement.setAttribute("src", product.image);
     elements.descriptionElement.textContent = product.description;
@@ -46,10 +46,9 @@ return function render(product) {
 
     listProduct.appendChild(elements.LiElement);
   });
-  var totalPriceElement = document.getElementById("total-price");
+  const totalPriceElement = document.getElementById("total-price");
   totalPriceElement.textContent = "Total Price :" + totalPrice() + "$";
 }
 
 
 
-})

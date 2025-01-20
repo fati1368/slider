@@ -1,8 +1,8 @@
-var listProduct=document.getElementById("list-product")
-function render(product){
+const listProduct=document.getElementById("list-product")
+export function render(product){
     listProduct.innerHTML=""
 
-    var elements=""
+    let elements=""
     product.forEach(function(product){
         elements+=
         "<li>"+
@@ -17,15 +17,14 @@ function render(product){
     listProduct.innerHTML=elements
 
 //total
-    var total=0;
+    let total=0;
     for(var i=0 ; i<product.length; i++){
         total += Number(product[i].price)
         // console.log(total)
     }
-    var totalPriceElement = document.getElementById("total-price");
+    const totalPriceElement = document.getElementById("total-price");
     totalPriceElement.textContent="Total Price :" + Math.round(total) + "$"
 }
-render(productsData)
 
 
 // var sum=productsData.reduce(function(accumulator, product){

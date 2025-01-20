@@ -1,14 +1,16 @@
-sliderElement = document.getElementById("slider");
-containerElement = document.createElement("DIV");
-NextBtn = document.createElement("BUTTON");
-NextBtn.textContent = "NEXT";
-PreviuseBtn = document.createElement("BUTTON");
+import { productsData } from "../data/data.js";
+
+const sliderElement = document.getElementById("slider");
+const containerElement = document.createElement("DIV");
+const NextBtn = document.createElement("BUTTON");
+ NextBtn.textContent = "NEXT";
+ const PreviuseBtn = document.createElement("BUTTON");
 PreviuseBtn.textContent = "PREVIOUS";
-RandomBtn = document.createElement("BUTTON");
+const RandomBtn = document.createElement("BUTTON");
 RandomBtn.textContent = "RANDOM";
 
-function slider(i) {
-  var product = productsData[i];
+export function slider(i) {
+  let product = productsData[i];
   containerElement.innerHTML =
     "<div class='container-slider'>" +
     " <div class='description'>" +
@@ -32,7 +34,7 @@ function slider(i) {
 
   sliderElement.append(containerElement);
 }
-function index() {
+export function index() {
   var ItemIndex = 0;
   slider(ItemIndex);
   return {
@@ -62,9 +64,11 @@ function index() {
     },
   };
 }
-var itemIndex = index();
-console.log(itemIndex);
-NextBtn.addEventListener("click", itemIndex.next);
-PreviuseBtn.addEventListener("click", itemIndex.previuse);
-RandomBtn.addEventListener("click", itemIndex.random);
-sliderElement.append(NextBtn, PreviuseBtn, RandomBtn);
+export function control(){
+  var itemIndex = index();
+  NextBtn.addEventListener("click", itemIndex.next);
+  PreviuseBtn.addEventListener("click", itemIndex.previuse);
+  RandomBtn.addEventListener("click", itemIndex.random);
+  sliderElement.append(NextBtn, PreviuseBtn, RandomBtn);
+
+}
